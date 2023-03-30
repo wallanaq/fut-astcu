@@ -93,7 +93,7 @@ function generate() {
   addSpan(tbTeams, 'Team 1')
   addRows(tbTeams, sorted.slice(0, 6).sort((a, b) => a.id - b.id))
   addSpan(tbTeams, 'Team 2')
-  addRows(tbTeams, sorted.slice(-6).sort((a, b) => a.id - b.id))
+  addRows(tbTeams, sorted.slice(6).sort((a, b) => a.id - b.id))
 
   document.querySelector('.tbOutput').style.visibility = 'visible'
 
