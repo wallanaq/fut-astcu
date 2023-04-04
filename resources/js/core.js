@@ -1,3 +1,9 @@
+/**
+ * Sort array in random order
+ * 
+ * @param {Array} rows Array to sort
+ * @returns A random sorted array
+ */
 export function sort(rows) {
 
   const sorted = []
@@ -7,7 +13,7 @@ export function sort(rows) {
     if (rows[position] == undefined) {
       continue
     }
-    sorted.push(rows.splice(position, 1)[0]);
+    sorted.push(rows.splice(position, 1)[0])
   }
   
   return sorted

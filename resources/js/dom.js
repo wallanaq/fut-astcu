@@ -1,3 +1,9 @@
+/**
+ * Add a new row of data to a Table object
+ * 
+ * @param {Element} table HTML Table element
+ * @param {Object} obj An object to add
+ */
 function addRow(table, obj) {
 
   const row = table.insertRow(-1)
@@ -11,22 +17,41 @@ function addRow(table, obj) {
   
 }
 
+/**
+ * Add new rows of data to a Table object
+ * 
+ * @param {Element} table HTML Table element
+ * @param {Object} obj An array of objects
+ */
 function addRows(table, arr) {
 
-  arr.forEach(obj => addRow(table, obj));
+  arr.forEach(obj => addRow(table, obj))
 
 }
 
-function addSpan(table, value) {
+/**
+ * Add cell with span
+ * 
+ * @param {Element} table HTML Table element
+ * @param {Number} colspan The number of columns a cell should span
+ * @param {String} content Cell content
+ */
+function addSpan(table, colspan, content) {
 
   const cell = table.insertRow(-1).insertCell(0)
 
-  cell.colSpan = 2
+  cell.colSpan = colspan
   cell.className = 'table-active'
-  cell.innerHTML = value
+  cell.innerHTML = content
 
 }
 
+/**
+ * Get all rows in the table as an array of objects
+ * 
+ * @param {*} table HTML Table element
+ * @returns Array of objects
+ */
 function getRows(table) {
 
   return Array.prototype.slice.call(table, 1).map(row => {
@@ -35,17 +60,12 @@ function getRows(table) {
 
 }
 
-//todo
-function clearTable(table) {
-
-  const rowCount = table.rows.length
-
-  for (let i = rowCount - 1; i > 0; i--) {
-    table.deleteRow(i)
-  }
-  
-}
-
+/**
+ * Set visibility of the component
+ * 
+ * @param {String} className The className property of the element
+ * @param {String} visibility New visibility
+ */
 function setVisibility(className, visibility) {
 
   const element = document.querySelector(className)
