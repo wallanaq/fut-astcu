@@ -38,7 +38,7 @@ function addRows(table, arr) {
  */
 function addSpan(table, colspan, content) {
 
-  const cell = table.insertRow(-1).insertCell(0)
+  const cell = table.getElementsByTagName('tbody')[0].insertRow(-1).insertCell(0)
 
   cell.colSpan = colspan
   cell.className = 'table-active'
