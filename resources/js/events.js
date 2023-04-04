@@ -30,7 +30,13 @@ btnAdd.onclick = () => {
 
 const btnClear = document.getElementById('btnClear')
 
-btnClear.onclick = () => dom.deleteRows('tbPlayers')
+btnClear.onclick = () => {
+
+  dom.deleteRows('tbPlayers')
+
+  dom.setVisibility('.output', 'hidden')
+
+} 
 
 /************************************************************
  * btnGenerate
@@ -56,6 +62,6 @@ btnGenerate.onclick = () => {
   dom.addSpan(tbTeams, 2, 'Team 2')
   dom.addRows(tbTeams, sorted.slice(6).sort((a, b) => a.id - b.id))
 
-  dom.setVisibility('.tbOutput', 'visible')
+  dom.setVisibility('.output', 'visible')
   
 }
