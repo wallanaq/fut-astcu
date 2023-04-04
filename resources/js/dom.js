@@ -61,6 +61,16 @@ function getRows(table) {
 }
 
 /**
+ * 
+ * @param {String} tableId
+ */
+function deleteRows(tableId) {
+
+  document.querySelectorAll(`#${tableId} tbody tr`).forEach(row => row.remove())
+
+}
+
+/**
  * Set visibility of the component
  * 
  * @param {String} className The className property of the element
@@ -78,6 +88,7 @@ export {
   addRow,
   addRows,
   getRows,
+  deleteRows,
   addSpan,
   setVisibility
 }

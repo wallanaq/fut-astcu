@@ -30,7 +30,7 @@ btnAdd.onclick = () => {
 
 const btnClear = document.getElementById('btnClear')
 
-btnClear.onclick = () => { console.log('ok') }
+btnClear.onclick = () => dom.deleteRows('tbPlayers')
 
 /************************************************************
  * btnGenerate
