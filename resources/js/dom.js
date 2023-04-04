@@ -6,7 +6,7 @@
  */
 function addRow(table, obj) {
 
-  const row = table.insertRow(-1)
+  const row = table.getElementsByTagName('tbody')[0].insertRow(-1)
   
   Object.entries(obj).forEach(entry => {
     const cell = row.insertCell(-1)
