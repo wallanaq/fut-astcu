@@ -48,6 +48,8 @@ btnGenerate.onclick = () => {
 
   const tbTeams = document.getElementById('tbTeams')
 
+  dom.deleteRows('tbTeams')
+
   dom.addSpan(tbTeams, 2, 'Team 1')
   dom.addRows(tbTeams, sorted.slice(0, 6).sort((a, b) => a.id - b.id))
 
