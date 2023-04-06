@@ -6,4 +6,4 @@
 ![](https://img.shields.io/badge/bootstrap-5.3.0-blue)
 ![](https://img.shields.io/badge/responsive-true-blue)
 
-A simple team organizer
+Um simples organizador de times
