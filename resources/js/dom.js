@@ -21,7 +21,7 @@ function addRow(table, obj) {
  * Add new rows of data to a Table object
  * 
  * @param {Element} table HTML Table element
- * @param {Object} obj An array of objects
+ * @param {Array} obj An array of objects
  */
 function addRows(table, arr) {
 
@@ -49,7 +49,7 @@ function addSpan(table, colspan, content) {
 /**
  * Get all rows in the table as an array of objects
  * 
- * @param {*} table HTML Table element
+ * @param {Element} table HTML Table element
  * @returns Array of objects
  */
 function getRows(table) {
@@ -61,6 +61,7 @@ function getRows(table) {
 }
 
 /**
+ * Delete all table rows
  * 
  * @param {String} tableId
  */
