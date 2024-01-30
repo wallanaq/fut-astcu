@@ -1,5 +1,4 @@
 import * as dom from './dom.js'
-import { sort } from './core.js'
 
 /************************************************************
  * btnAdd
@@ -47,12 +46,11 @@ const btnGenerate = document.getElementById('btnGenerate')
 btnGenerate.onclick = () => { 
 
   const tbPlayers = document.querySelectorAll('#tbPlayers tr')
+  const tbTeams   = document.getElementById('tbTeams')
 
   const rows = dom.getRows(tbPlayers)
 
-  const sorted = sort(rows)
-
-  const tbTeams = document.getElementById('tbTeams')
+  const sorted = rows.sort(() => Math.random() - 0.5)
 
   dom.deleteRows('tbTeams')
 
