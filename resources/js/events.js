@@ -1,65 +1,66 @@
-import * as dom from './dom.js'
+$(document).ready(() => {
 
-/************************************************************
- * btnAdd
- ************************************************************/
+  let count = 0;
 
-const btnAdd = document.getElementById('btnAdd')
-
-btnAdd.onclick = () => {
+  /************************************************************
+   * btnAdd
+   ************************************************************/
   
-  const txtName   = document.getElementById('txtName')
-  const tbPlayers = document.getElementById('tbPlayers')
+  $('#btnAdd').on('click', () => {
 
-  const id   = tbPlayers.rows.length
-  const name = txtName.value.trim()
+    const name = $('#txtName').val().trim()
+
+    if (!$.isEmptyObject(name)) {
+      $('#tbPlayers').addRow({id: ++count, name})
+    }
+
+    $('#tbCount').text(`# (${count})`)
+    
+    $('#txtName').val('');
+    $('#txtName').focus()
   
-  if (typeof name === 'string' && name.length !== 0) {
-    dom.addRow(tbPlayers, {id, name})
-  }
-
-  txtName.value = null
-  txtName.focus()
-
-}
-
-/************************************************************
- * btnClear
- ************************************************************/
-
-const btnClear = document.getElementById('btnClear')
-
-btnClear.onclick = () => {
-
-  dom.deleteRows('tbPlayers')
-
-  dom.setVisibility('.output', 'hidden')
-
-} 
-
-/************************************************************
- * btnGenerate
- ************************************************************/
-
-const btnGenerate = document.getElementById('btnGenerate')
-
-btnGenerate.onclick = () => { 
-
-  const tbPlayers = document.querySelectorAll('#tbPlayers tr')
-  const tbTeams   = document.getElementById('tbTeams')
-
-  const rows = dom.getRows(tbPlayers)
-
-  const sorted = rows.sort(() => Math.random() - 0.5)
-
-  dom.deleteRows('tbTeams')
-
-  dom.addSpan(tbTeams, 2, 'Team 1')
-  dom.addRows(tbTeams, sorted.slice(0, 6).sort((a, b) => a.id - b.id))
-
-  dom.addSpan(tbTeams, 2, 'Team 2')
-  dom.addRows(tbTeams, sorted.slice(6).sort((a, b) => a.id - b.id))
-
-  dom.setVisibility('.output', 'visible')
+  })
   
-}
+  /************************************************************
+   * btnClear
+   ************************************************************/
+  
+  $('#btnClear').on('click', () => {
+  
+    count = 0
+
+    $('#tbPlayers').children('tbody').empty()
+    $('#tbTeams').children('tbody').empty()
+
+    $('#tbCount').text(`# (${count})`)
+  
+  }) 
+  
+  /************************************************************
+   * btnGenerate
+   ************************************************************/
+  
+  $('#btnGenerate').on('click', () => {
+  
+    $('#tbTeams tbody').empty()
+
+    const rows = $('#tbPlayers tbody').getRows()
+
+    const sorted = rows.sort(() => Math.random() - 0.5)
+
+    const half = Math.ceil(sorted.length / 2);
+
+    const compareFn = (a, b) => a.id - b.id
+
+    const team1 = sorted.slice(0, half).sort(compareFn)
+    const team2 = sorted.slice(half).sort(compareFn)
+
+    $('#tbTeams').addRows('Team 1', team1)
+    $('#tbTeams').addRows('Team 2', team2)
+
+    new bootstrap.Collapse($('#collapseOne'))
+    new bootstrap.Collapse($('#collapseTwo'))
+
+  })
+
+})
