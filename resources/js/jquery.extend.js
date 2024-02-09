@@ -28,14 +28,24 @@ $.fn.addRows = function(headerText, arr) {
 }
 
 /************************************************************
- * table tbody.getRows
+ * table.clear
+ ************************************************************/
+
+$.fn.clear = function() {
+  
+  this.find('tbody').empty()
+
+}
+
+/************************************************************
+ * table.getRows
  ************************************************************/
 
 $.fn.getRows = function() {
 
   const data = []
 
-  this.children('tr').each(function() {
+  this.find('tr').each(function() {
     
     const row = {}
 

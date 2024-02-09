@@ -5,20 +5,22 @@ $(document).ready(() => {
   /************************************************************
    * btnAdd
    ************************************************************/
-  
   $('#btnAdd').on('click', () => {
 
     const name = $('#txtName').val().trim()
 
     if (!$.isEmptyObject(name)) {
+      
       $('#tbPlayers').addRow({id: ++count, name})
+      
+      $('#thCount').text(`# (${count})`)
+      
+      $('#txtName').val('')
+      
     }
 
-    $('#tbCount').text(`# (${count})`)
-    
-    $('#txtName').val('');
     $('#txtName').focus()
-  
+
   })
   
   /************************************************************
@@ -29,10 +31,10 @@ $(document).ready(() => {
   
     count = 0
 
-    $('#tbPlayers').children('tbody').empty()
-    $('#tbTeams').children('tbody').empty()
+    $('#tbPlayers tbody').empty()
+    $('#tbTeams tbody').empty()
 
-    $('#tbCount').text(`# (${count})`)
+    $('#thCount').text(`# (${count})`)
   
   }) 
   
@@ -44,7 +46,7 @@ $(document).ready(() => {
   
     $('#tbTeams tbody').empty()
 
-    const rows = $('#tbPlayers tbody').getRows()
+    const rows = $('#tbPlayers').getRows()
 
     const sorted = rows.sort(() => Math.random() - 0.5)
 
@@ -58,8 +60,7 @@ $(document).ready(() => {
     $('#tbTeams').addRows('Team 1', team1)
     $('#tbTeams').addRows('Team 2', team2)
 
-    new bootstrap.Collapse($('#collapseOne'))
-    new bootstrap.Collapse($('#collapseTwo'))
+    $('#collapseThree').collapse()
 
   })
 
