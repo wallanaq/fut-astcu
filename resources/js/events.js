@@ -48,17 +48,17 @@ $(document).ready(() => {
 
     const rows = $('#tbPlayers').getRows()
 
+    if (!Array.isArray(rows)) {
+      return
+    }
+
     const sorted = rows.sort(() => Math.random() - 0.5)
 
-    const half = Math.ceil(sorted.length / 2);
+    const size = $('#teamSizeInput').val()
 
-    const compareFn = (a, b) => a.id - b.id
-
-    const team1 = sorted.slice(0, half).sort(compareFn)
-    const team2 = sorted.slice(half).sort(compareFn)
-
-    $('#tbTeams').addRows('Team 1', team1)
-    $('#tbTeams').addRows('Team 2', team2)
+    sorted.split(+size).map((arr, index) => {
+      $('#tbTeams').addRows(`Team ${index+1}`, arr)
+    })
 
     $('#collapseThree').collapse()
 

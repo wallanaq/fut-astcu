@@ -28,16 +28,6 @@ $.fn.addRows = function(headerText, arr) {
 }
 
 /************************************************************
- * table.clear
- ************************************************************/
-
-$.fn.clear = function() {
-  
-  this.find('tbody').empty()
-
-}
-
-/************************************************************
  * table.getRows
  ************************************************************/
 
@@ -45,7 +35,7 @@ $.fn.getRows = function() {
 
   const data = []
 
-  this.find('tr').each(function() {
+  this.children('tbody').find('tr').each(function() {
     
     const row = {}
 
