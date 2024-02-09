@@ -29,29 +29,29 @@
             <div class="accordion-body">
 
               <div class="row">
-                <form class="w-100 mt-2" role="search">
-                  <input class="form-control mb-4" type="search" id="txtName" placeholder="Nome do jogador" aria-label="Search">
+                <form>
+                  <input class="form-control" type="search" id="txtName" placeholder="Nome do jogador" aria-label="Search" required>
                 </form>
               </div>
               <div class="row">
                 <div class="col-4">
-                  <div class="d-grid gap-2 col-12 mx-auto mb-4">
+                  <div class="d-grid gap-2 col-12 mx-auto mt-3 mb-3">
                     <button class="btn btn-primary" type="button" id="btnAdd">Adicionar</button>
                   </div>
                 </div>
                 <div class="col-4">
-                  <div class="d-grid gap-2 col-12 mx-auto mb-4">
+                  <div class="d-grid gap-2 col-12 mx-auto mt-3 mb-3">
                     <button class="btn btn-danger" type="button" id="btnClear">Limpar</button>
                   </div>
                 </div>
                 <div class="col-4">
-                  <div class="d-grid gap-2 col-12 mx-auto mb-4">
+                  <div class="d-grid gap-2 col-12 mx-auto mt-3 mb-3">
                     <button class="btn btn-success" type="button" id="btnNext1" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Avançar</button>
                   </div>
                 </div>
               </div>
 
-              <table class="table table-bordered mb-2" id="tbPlayers">
+              <table class="table table-bordered" id="tbPlayers">
                 <thead>
                   <tr>
                     <th scope="col" id="thCount"># (0)</th>
@@ -71,20 +71,20 @@
           <div class="accordion-collapse collapse" id="collapseTwo" data-bs-parent="#accordionBase" aria-labelledby="headingTwo">
             <div class="accordion-body">
 
-              <form>
-                <div class="mb-3">
+              <div class="row">
+                <form>
                   <label class="form-label" for="teamSizeInput">Jogadores por time</label>
                   <input class="form-control" type="number" id="teamSizeInput" value="6">
-                </div>   
-                <div class="row">
-                  <div class="col-8"></div>
-                  <div class="col-4">
-                    <div class="d-grid gap-2 col-12 mx-auto mb-2">
-                      <button class="btn btn-success" type="button" id="btnNext2" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Avançar</button>
-                    </div>
+                </form>
+              </div>   
+              <div class="row">
+                <div class="col-8"></div>
+                <div class="col-4">
+                  <div class="d-grid gap-2 col-12 mx-auto mb-2 mt-3">
+                    <button class="btn btn-success" type="button" id="btnNext2" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Avançar</button>
                   </div>
                 </div>
-              </form>
+              </div>
 
             </div>
           </div>
@@ -103,7 +103,7 @@
                   </div>
                 </div>
               </div>
-              <table class="table table-bordered mb-4" id="tbTeams">
+              <table class="table table-bordered" id="tbTeams">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
