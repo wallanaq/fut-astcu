@@ -57,7 +57,7 @@ $(document).ready(() => {
     const size = $('#teamSizeInput').val()
 
     sorted.split(+size).map((arr, index) => {
-      $('#tbTeams').addRows(`Team ${index+1}`, arr)
+      $('#tbTeams').addRows(`Equipe ${index+1}`, arr)
     })
 
     $('#collapseThree').collapse()
