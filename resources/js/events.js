@@ -34,7 +34,7 @@ $(document).ready(() => {
     $('#tbPlayers tbody').empty()
     $('#tbTeams tbody').empty()
 
-    $('#thCount').text(`# (${count})`)
+    $('#thCount').text(`#`)
   
   }) 
   
@@ -48,19 +48,20 @@ $(document).ready(() => {
 
     const rows = $('#tbPlayers').getRows()
 
-    if (!Array.isArray(rows)) {
-      return
+    if (rows.length > 0) {
+      
+      const sorted = rows.sort(() => Math.random() - 0.5)
+  
+      const size = $('#teamSizeInput').val()
+  
+      sorted.split(+size).map((arr, index) => {
+        $('#tbTeams').addSection(`Equipe ${index + 1}`, 2)
+        $('#tbTeams').addRows(arr)
+      })
+  
+      $('#collapseThree').collapse()
+      
     }
-
-    const sorted = rows.sort(() => Math.random() - 0.5)
-
-    const size = $('#teamSizeInput').val()
-
-    sorted.split(+size).map((arr, index) => {
-      $('#tbTeams').addRows(`Equipe ${index+1}`, arr)
-    })
-
-    $('#collapseThree').collapse()
 
   })
 
